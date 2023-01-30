@@ -1,18 +1,20 @@
-const answer=Math.floor(Math.random() * 20 + 1);
-let guesses=0;
 
-document.getElementById("submitButton").onclick=function (){
-    let guess=document.getElementById("guessField").value;
-    guesses+=1;
-    if (guess==answer){
-        alert("Печелиш!", guesses ,"опита");
-    }
-    else{
-        if (guess<answer){
-            alert("По-голямо!");
-        }
-        else{
-            alert("По-малко!");
-        }
+const myLabel=document.getElementById("myLabel");
+
+update();
+setInterval(update, 1000);
+function update(){
+
+    let date=new Date();
+    myLabel.innerHTML=formatTime(date);
+
+    function formatTime(date){
+        let hours=date.getHours();
+        let minutes=date.getMinutes();
+        let seconds=date.getSeconds();
+        
+        
+
+        return `${hours}:${minutes}:${seconds}`;
     }
 }
